@@ -25,9 +25,26 @@ public class Entity  {
 	List<Item> equipped;
 	int coins;
 
-	GameObject texture;
+	GameObject sprite;
 
-	public Entity(){
+	public Vector3 currentPosition;
+
+	public Entity(bool isPlayer, GameObject sprite){
+		this.isPlayer = isPlayer;
+		this.sprite = sprite;
+		isDead = false;
 		inventory = new List<Item>();
+	}
+
+	public GameObject GetSprite(){
+		return this.sprite;
+	}
+
+	public void SetSprite(GameObject sprite){
+		this.sprite = sprite;
+	}
+
+	public void SetSpritePosition(Vector3 newPosition){
+		sprite.transform.position = newPosition;
 	}
 }

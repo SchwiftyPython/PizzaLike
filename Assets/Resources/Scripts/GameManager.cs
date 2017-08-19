@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 	public TurnState currentState;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		currentState = TurnState.START;
 	}
 	
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 
 		switch(currentState) {
 		case TurnState.START:
-			//setup game
+			WorldManager.instance.BoardSetup ();
 			currentState = TurnState.PLAYERTURN;
 			break;
 		case TurnState.PLAYERTURN:
